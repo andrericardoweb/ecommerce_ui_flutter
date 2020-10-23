@@ -1,4 +1,5 @@
 import 'package:ecommerce_ui_flutter/constants.dart';
+import 'package:ecommerce_ui_flutter/screens/sign_in/sign_in_screen.dart';
 import 'package:ecommerce_ui_flutter/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -68,7 +69,9 @@ class _BodyState extends State<Body> {
                     Spacer(flex: 3),
                     DefaultButton(
                       text: "Continue",
-                      press: (){},
+                      press: () {
+                        Navigator.pushNamed(context, SignInScreen.routeName);
+                      },
                     ),
                     Spacer(),
                   ],
