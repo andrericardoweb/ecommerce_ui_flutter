@@ -1,5 +1,5 @@
+import 'package:ecommerce_ui_flutter/components/no_account_text.dart';
 import 'package:ecommerce_ui_flutter/components/social_card.dart';
-import 'package:ecommerce_ui_flutter/constants.dart';
 import 'package:ecommerce_ui_flutter/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -52,24 +52,7 @@ class Body extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: getProportionateScreenHeight(20)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Don't have an account? ",
-                      style: TextStyle(
-                        fontSize: getProportionateScreenWidth(16),
-                      ),  
-                    ),
-                    Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        fontSize: getProportionateScreenWidth(16),
-                        color: kPrimaryColor,
-                      ),  
-                    ),
-                  ],
-                ),
+                NoAccountText(),
               ],
             ),
           ),
@@ -78,5 +61,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-
-
