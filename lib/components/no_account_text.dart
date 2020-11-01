@@ -1,3 +1,4 @@
+import 'package:ecommerce_ui_flutter/screens/sign_up/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -20,9 +21,7 @@ class NoAccountText extends StatelessWidget {
           ),  
         ),
         GestureDetector(
-          onTap: () {
-            
-          },
+          onTap: () => Navigator.pushNamed(context, SignUpScreen.routeName),
           child: Text(
             "Sign Up",
             style: TextStyle(
