@@ -1,6 +1,7 @@
 import 'package:ecommerce_ui_flutter/components/custom_surffix_icon.dart';
 import 'package:ecommerce_ui_flutter/components/default_button.dart';
 import 'package:ecommerce_ui_flutter/components/form_error.dart';
+import 'package:ecommerce_ui_flutter/screens/complete_profile/complete_profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -50,6 +51,7 @@ class _SignUpFormState extends State<SignUpForm> {
             press: () {
               if (_formKey.currentState.validate()) {
                 //Go to complete profile page
+                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
               }
             },
           ),
@@ -60,30 +62,30 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildConfPasswordFormField() {
     return TextFormField(
-          obscureText: true,
-          onSaved: (newValue) => conformPassword = newValue,
-          onChanged: (value) {
-            if (password == conformPassword) {
-              removeError(error: kMatchPassError);
-            }
-            return null;
-          },
-          validator: (value) {
-            if (value.isEmpty){
-              return "";
-            } else if (password != conformPassword) {
-              addError(error: kMatchPassError);
-              return "";
-            }
-            return null;
-          },
-          decoration: InputDecoration(
-            labelText: "Confirm Password",
-            hintText: "Re-enter your password",
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            suffixIcon: CusttomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
-          ),
-        );
+      obscureText: true,
+      onSaved: (newValue) => conformPassword = newValue,
+      onChanged: (value) {
+        if (password == conformPassword) {
+          removeError(error: kMatchPassError);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value.isEmpty) {
+          return "";
+        } else if (password != value) {
+          addError(error: kMatchPassError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Confirm Password",
+        hintText: "Re-enter your password",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CusttomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+      ),
+    );
   }
 
   TextFormField buildPasswordFormField() {
